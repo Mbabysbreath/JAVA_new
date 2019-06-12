@@ -1,5 +1,20 @@
-public static ListNode partition(ListNode pHead, int x) {
+import java.util.*;
+
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Partition {
+    public static ListNode partition(ListNode pHead, int x) {
         // write code here
+       if(pHead==null){
+            return null;
+       }
         ListNode sList= null;
         ListNode lList=null;
         ListNode last2=null;
@@ -7,35 +22,37 @@ public static ListNode partition(ListNode pHead, int x) {
 		ListNode cur=pHead;
        // ListNode lHead=new ListNode(x);
         while(cur!=null){
-            ListNode next=cur.next;
-            if(cur.val<=x){
-                if(last1==null){
+            if(cur.val<x){
+                if(sList==null){
                     sList=cur;
-                    last1=cur;
                 }
                 else{
                     last1.next=cur;
-                    last1=cur;
                 }
-                
+                last1=cur;
             }
             
             else{
-                if(last2==null){
+                if(lList==null){
                     lList=cur;
-                    last2=cur;
                 }
 				else{
                  last2.next=cur;
-                 last2=cur;
-                
             }
-            cur=next;
+                last2=cur;
         }   
+            cur=cur.next;
 	}
-		last1.next=lList;
+       if(sList==null){
+            return lList;
+       }else{
+		    last1.next=lList;
+            if(last2!=null){
+                last2.next=null;
+            }
         return sList;
- }
+     }
+   }
 	public static void print(ListNode head){
 		ListNode cur=head;
 		while(cur!=null){
@@ -52,7 +69,7 @@ public static ListNode partition(ListNode pHead, int x) {
 		n1.next=n2;n2.next=n3;
 		n3.next=n4;
 		print(n1);
-		ListNode m=partition(n1,1);
+		ListNode m=partition(n1,3);
 		print(m);
 	}
 }
