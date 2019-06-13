@@ -12,7 +12,7 @@
         this.val = val;
     }
 }
-public class DeleteDuplication1 {
+public class DeleteDuplication2 {
     public static ListNode deleteDuplication(ListNode pHead){
 		if(pHead==null){
 			return null;
