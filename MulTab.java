@@ -9,7 +9,7 @@ public class MulTab{
 				System.out.print(" "+i+"*"+j+"="+sum);
 				System.out.printf("%d * %d =%d\t",i,j,sum）;
 			}
-			System.out.println();
+			System.out.println();//println带自动换行
 		}
 		
 	}
