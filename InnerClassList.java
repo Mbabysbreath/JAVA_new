@@ -34,6 +34,14 @@ abstract class AbstractList implements List{
 }
 //顺序表类
 class  ArrayList extends AbstractList implements List,RandomAccess{
+       	public void insertInternal(int index,int val){
+		for(int i=size;i<index;i--){
+			array[i+1]=array[i];
+		}
+		array[index]=val;
+		size++;
+		
+	}
 	
 	
 			
